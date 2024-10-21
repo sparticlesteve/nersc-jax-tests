@@ -16,6 +16,6 @@ mkdir -p $SCRATCH/shifter-gdr
 rsync -vau /usr/lib64/libgdrapi.so* $SCRATCH/shifter-gdr/
 
 srun -u -l shifter bash -c "
-    export LD_LIBRARY_PATH=$SCRATCH/shifter-gdr:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=$SCRATCH/shifter-gdr:\$LD_LIBRARY_PATH
     python jax_psum.py
 "
