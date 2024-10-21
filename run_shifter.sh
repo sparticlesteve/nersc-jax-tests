@@ -8,5 +8,7 @@
 #SBATCH --module=gpu,nccl-plugin
 
 export MASTER_ADDR=$(hostname)
+#export FI_LOG_LEVEL=trace
+export NCCL_DEBUG=INFO
 
 srun -u -l shifter python jax_psum.py
